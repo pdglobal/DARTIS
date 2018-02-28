@@ -112,7 +112,7 @@ public class mainGUI {
 		lbldatasize.setForeground(new Color(255, 255, 255));
 		lbldatasize.setBackground(new Color(0, 0, 0));
 		lbldatasize.setFont(new Font("Cambria Math", Font.BOLD, 14));
-		lbldatasize.setBounds(567, 84, 69, 31);
+		lbldatasize.setBounds(567, 84, 128, 31);
 		panel.add(lbldatasize);
 		
 		lblhz = new JLabel("0Hz");
@@ -120,14 +120,14 @@ public class mainGUI {
 		lblhz.setBackground(new Color(0, 0, 0));
 		lblhz.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblhz.setFont(new Font("Cambria Math", Font.BOLD, 14));
-		lblhz.setBounds(692, 126, 93, 31);
+		lblhz.setBounds(765, 126, 93, 31);
 		panel.add(lblhz);
 		
 		JLabel lblCalculationAccuracy = new JLabel("Calculation Accuracy:");
 		lblCalculationAccuracy.setForeground(new Color(255, 255, 255));
 		lblCalculationAccuracy.setBackground(new Color(0, 0, 0));
 		lblCalculationAccuracy.setFont(new Font("Cambria Math", Font.BOLD, 14));
-		lblCalculationAccuracy.setBounds(567, 175, 158, 31);
+		lblCalculationAccuracy.setBounds(567, 175, 217, 31);
 		panel.add(lblCalculationAccuracy);
 		
 		label = new JLabel("100%");
@@ -135,7 +135,7 @@ public class mainGUI {
 		label.setBackground(new Color(0, 0, 0));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setFont(new Font("Cambria Math", Font.BOLD, 14));
-		label.setBounds(721, 180, 64, 21);
+		label.setBounds(794, 180, 64, 21);
 		panel.add(label);
 		
 		JSeparator separator_1 = new JSeparator();
@@ -161,7 +161,7 @@ public class mainGUI {
 		label_1.setForeground(Color.WHITE);
 		label_1.setFont(new Font("Cambria Math", Font.BOLD, 14));
 		label_1.setBackground(Color.BLACK);
-		label_1.setBounds(567, 126, 128, 31);
+		label_1.setBounds(567, 126, 188, 31);
 		panel.add(label_1);
 		
 		datasize = new JLabel("0 Bytes");
@@ -169,7 +169,7 @@ public class mainGUI {
 		datasize.setForeground(Color.GREEN);
 		datasize.setFont(new Font("Cambria Math", Font.BOLD, 14));
 		datasize.setBackground(Color.BLACK);
-		datasize.setBounds(646, 84, 139, 31);
+		datasize.setBounds(719, 84, 139, 31);
 		panel.add(datasize);
 	}
 	public static JTextArea debugDecode() {
