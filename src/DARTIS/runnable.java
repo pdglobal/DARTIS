@@ -13,15 +13,15 @@ public class runnable {
     public static void main(String[] args) throws UnknownHostException {
         mainGUI.main(args);
 			originalString = "Executing DARTIS operations test on: "+java.net.InetAddress.getLocalHost()+" running on JRE "+System.getProperty("java.version");
-        String[] key = DARTIS.methods.key.load(DARTIS.methods.key.generate(1));
+        String[] key = construct.load(keys.generate(1));
         long startTime = System.currentTimeMillis();
         mainGUI.debugDecode().setText(originalString);
         mainGUI.getDatasize().setText(String.valueOf(originalString.length())+" Bytes");
         while(true) {
-        	String encodedText = methods.crypt.inject(originalString, key);
+        	String encodedText = crypt.inject(originalString, key);
         	mainGUI.encodedData().setText(encodedText);
         	operations += 1;
-        	String returnData = methods.crypt.extract(encodedText, key);
+        	String returnData = crypt.extract(encodedText, key);
         	mainGUI.debugDecode().setText(returnData);
         	operations += 1;
         	if ((System.currentTimeMillis()-startTime)/1000 > 0) {
