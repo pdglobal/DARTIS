@@ -11,12 +11,12 @@ public class keys {
 		 for (int a=0 ; a <= 9; a++) {
 		 for (int j=0 ; j <= 8; j++)
 		 {
-		   sb.append(Double.toString(rand.nextDouble()*10)+",");
+		   sb.append(Double.toString(rand.nextDouble()*50)+",");
 		 } 
 		 if (a == 8) {
-		 sb.append(Double.toString(rand.nextDouble()*10)+"/");
+		 sb.append(Double.toString(rand.nextDouble()*50)+"/");
 		 } else {
-	     sb.append(Double.toString(rand.nextDouble()*10)+";");	 
+	     sb.append(Double.toString(rand.nextDouble()*50)+";");	 
 		 }
 	}
 		 }
