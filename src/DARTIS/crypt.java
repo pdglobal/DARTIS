@@ -15,7 +15,7 @@ public class crypt {
 			n += 1;
 			if(n > 9) { n = 0; l += 1; }
 			}
-			while(n < 9) { insert[l][n] = 1;n += 1; }
+			while(n < 10) { insert[l][n] = 1;n += 1; }
 			String[] timestamp = time.getTimestamp(key.length);
 					Matrix matrix = new Matrix(insert);
 					Matrix nextLayer = construct.hologram(key[Integer.parseInt(timestamp[1])]);

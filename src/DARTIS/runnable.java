@@ -13,7 +13,7 @@ public class runnable {
     public static void main(String[] args) throws UnknownHostException {
         mainGUI.main(args);
 			originalString = "Executing DARTIS operations test on: "+java.net.InetAddress.getLocalHost()+" running on JRE "+System.getProperty("java.version");
-        String[] key = construct.load(keys.generate(1));
+        String[] key = construct.load(keys.generate());
         long startTime = System.currentTimeMillis();
         mainGUI.debugDecode().setText(originalString);
         mainGUI.getDatasize().setText(String.valueOf(originalString.length())+" Bytes");
