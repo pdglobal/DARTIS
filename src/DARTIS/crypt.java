@@ -1,21 +1,24 @@
 package DARTIS;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 import Jama.Matrix;
 
 public class crypt {
 
 	public static String inject(String data, String[] key) {
+		Random rand = new Random();
 		String[] temp = strings.stringequalsplit(data, 1);
-		double[] insert[] = new double[temp.length/9+1][10];
+		int array_size = (int) Math.ceil(temp.length/9);
+		double[] insert[] = new double[array_size][10];
 		int n = 0; int l = 0;
 		for (int i = 1; i<=temp.length-1; i++) {
 			insert[l][n] = temp[i].charAt(0);
 			n += 1;
 			if(n > 9) { n = 0; l += 1; }
 			}
-			while(n < 10) { insert[l][n] = 1;n += 1; }
+			while(n < 10) { insert[l][n] = rand.nextDouble();n += 1; }
 			String[] timestamp = time.getTimestamp(key.length);
 					Matrix matrix = new Matrix(insert);
 					Matrix nextLayer = construct.hologram(key[Integer.parseInt(timestamp[1])]);
