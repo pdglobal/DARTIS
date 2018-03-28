@@ -29,7 +29,7 @@ public class crypt {
 							id = id+ timestamp[i]+";";
 							matrix = matrix.times(construct.hologram(key[Integer.parseInt(timestamp[i])]));
 					}
-		String ret = strings.array2str(matrix.getArray()).replace(" ", "").replace("[","").replace("]", "").replace(", ", ",")+"~"+id;
+		String ret = strings.array2str(matrix.getArray()).replace(" ", "").replace("[","").replace("]", "").replace(", ", ",").replace("E", "E+")+"~"+id;
 		String verify = crypt.extract(ret, key);
 		while(verify.equals(data) == false) {
 			timestamp = time.getTimestamp(key.length);
@@ -42,7 +42,7 @@ public class crypt {
 					id = id+ timestamp[i]+";";
 					matrix = matrix.times(construct.hologram(key[Integer.parseInt(timestamp[i])]));
 			}
-			ret = strings.array2str(matrix.getArray()).replace(" ", "").replace("[","").replace("]", "").replace(", ", ",")+"~"+id;
+			ret = strings.array2str(matrix.getArray()).replace(" ", "").replace("[","").replace("]", "").replace(", ", ",").replace("E", "E+")+"~"+id;
 			verify = crypt.extract(ret, key);
 		}
         return ret;
@@ -50,7 +50,7 @@ public class crypt {
 	
 	public static String extract(String data, String[] key) {
 		String[] properties = data.split("~");
-		Matrix film = construct.hologram(properties[0]);
+		Matrix film = construct.hologram(properties[0].replace("E+", "E"));
 		String[] indexList = properties[1].replace(" ", "").replace("[","").replace("]", "").split(";");
 		for (int i=0;i<=indexList.length-1;i++) {
 			film = film.times(construct.hologram(key[Integer.parseInt(indexList[(indexList.length-1-i)])]).inverse());
