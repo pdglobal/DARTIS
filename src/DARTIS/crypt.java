@@ -50,7 +50,7 @@ public class crypt {
 	
 	public static String extract(String data, String[] key) {
 		String[] properties = data.split("~");
-		if (properties.length() < 2) {
+		if (properties.length < 2) {
 			return "Malformated encryption string!";
 		}
 		Matrix film = construct.hologram(properties[0].replace("E+", "E"));
