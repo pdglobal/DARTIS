@@ -13,7 +13,7 @@ public class time {
 		int dateFormatter = today.getYear();
 		LocalTime time = LocalTime.now();
 		int clock = Integer.parseInt(time.toString().replace(":", "").replace(".", ""));
-		String datetime = String.valueOf((Calendar.DAY_OF_YEAR * dateFormatter * clock));
+		String datetime = String.valueOf((Calendar.DAY_OF_YEAR + dateFormatter * clock));
 		String datetime_era = String.valueOf((Calendar.ERA));
 		String s = datetime_era;
 		byte[] bytes = s.getBytes();
