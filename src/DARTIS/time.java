@@ -21,7 +21,6 @@ public class time {
 		String ret = new BigDecimal(datetime.concat(String.valueOf(estimatedTime).replace(".", "").replace("-", "")))
 				.divide(new BigDecimal(rand.nextDouble() * 100.0f), mc).toPlainString().replace(".", "")
 				.replaceAll("-", "");
-		System.out.println(ret);
 		return strings.stringequalsplit(ret, String.valueOf(length).length() - 1);
 	}
 }
