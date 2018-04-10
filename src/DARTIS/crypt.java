@@ -1,6 +1,5 @@
 package DARTIS;
 
-import java.lang.reflect.Array;
 import java.util.Random;
 
 import Jama.Matrix;
@@ -11,7 +10,7 @@ public class crypt {
 		Random rand = new Random();
 		String[] temp = strings.stringequalsplit(data, 1);
 		int array_size = (int) Math.ceil(temp.length/9);
-		double[] insert[] = new double[array_size][10];
+		double insert[][] = new double[array_size][10];
 		int n = 0; int l = 0;
 		for (int i = 1; i<=temp.length-1; i++) {
 			insert[l][n] = temp[i].charAt(0);
@@ -24,14 +23,15 @@ public class crypt {
 					Matrix nextLayer = construct.hologram(key[Integer.parseInt(timestamp[1])]);
 					matrix = matrix.times(nextLayer);
 					String id = timestamp[1]+";";
-					for(int i=2;i<=Integer.parseInt(timestamp[0]);i++) {
+					int layers = Integer.parseInt(timestamp[0]);
+					for(int i=2;i<=layers;i++) {
 						if (Integer.parseInt(timestamp[i]) < 1) { timestamp[i] = "1"; }
 							id = id+ timestamp[i]+";";
 							matrix = matrix.times(construct.hologram(key[Integer.parseInt(timestamp[i])]));
 					}
 		String ret = strings.array2str(matrix.getArray()).replace(" ", "").replace("[","").replace("]", "").replace(", ", ",").replace("E", "E+")+"~"+id;
 		String verify = crypt.extract(ret, key);
-		while(verify.equals(data) == false) {
+		while(!verify.equals(data)) {
 			timestamp = time.getTimestamp(key.length);
 			matrix = new Matrix(insert);
 			nextLayer = construct.hologram(key[Integer.parseInt(timestamp[1])]);
@@ -62,7 +62,7 @@ public class crypt {
 		String flat = strings.array2str(original);
 		String[] line = flat.replace(" ", "").replace("[","").replace("]", "").replace(";", ",").split(",");
 		String ascii = "";
-		for(int i = 0;i<=Array.getLength(line)-1;i++) {
+		for(int i = 0;i<line.length;i++) {
 			int chrvalue = internalMath.safeLongToInt(Math.round(Double.parseDouble(line[i])));
 			if (chrvalue > 1.1 &&  chrvalue < 500000) {
 				String chr = String.valueOf(Character.toChars(chrvalue));
