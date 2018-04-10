@@ -12,7 +12,7 @@ public class runnable {
 	
     public static void main(String[] args) throws UnknownHostException {
         mainGUI.main(args);
-			originalString = "Executing DARTIS operations test on: "+java.net.InetAddress.getLocalHost()+" running on JRE "+System.getProperty("java.version");
+		originalString = "Executing DARTIS operations test on: "+java.net.InetAddress.getLocalHost()+" running on JRE "+System.getProperty("java.version");
         String[] key = construct.load(keys.generate());
         long startTime = System.currentTimeMillis();
         mainGUI.debugDecode().setText(originalString);
@@ -25,7 +25,7 @@ public class runnable {
         	mainGUI.debugDecode().setText(returnData);
         	operations += 1;
         	if ((System.currentTimeMillis()-startTime)/1000 > 0) {
-        	hz = String.valueOf((operations)/((System.currentTimeMillis()-startTime)/1000));
+        		hz = String.valueOf((operations)/((System.currentTimeMillis()-startTime)/1000));
         	}
         	mainGUI.ops().setText(hz+"Hz");
         }
