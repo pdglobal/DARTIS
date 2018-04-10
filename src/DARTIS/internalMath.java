@@ -19,7 +19,7 @@ public class internalMath {
 			String[] byMultipl = multipl.split("\\*");
 			int multiplResult = 1;
 			for (String operand : byMultipl) {
-				multiplResult *= Float.valueOf(operand);
+				multiplResult *= Math.round(Float.valueOf(operand));
 			}
 			result += multiplResult;
 		}

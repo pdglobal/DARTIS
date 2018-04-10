@@ -15,7 +15,7 @@ public class time {
 		int dateFormatter = today.getYear();
 		LocalTime time = LocalTime.now();
 		int clock = internalMath.compute(time.toString().replace(":", "+"));
-		String datetime = String.valueOf((Calendar.DAY_OF_YEAR + dateFormatter) * 100.0f) + clock;
+		String datetime = String.valueOf(Calendar.DAY_OF_YEAR + dateFormatter) + clock;
 		Random rand = new Random();
 		MathContext mc = new MathContext(23, RoundingMode.HALF_UP);
 		String ret = new BigDecimal(datetime.concat(String.valueOf(estimatedTime).replace(".", "").replace("-", "")))
