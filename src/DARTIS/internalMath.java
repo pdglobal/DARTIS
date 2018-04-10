@@ -11,4 +11,19 @@ public class internalMath {
 		}
 		return (int) l;
 	}
+
+	public static int compute(String equation) {
+		int result = 0;
+		String[] byPluses = equation.split("\\+");
+		for (String multipl : byPluses) {
+			String[] byMultipl = multipl.split("\\*");
+			int multiplResult = 1;
+			for (String operand : byMultipl) {
+				multiplResult *= Float.valueOf(operand);
+			}
+			result += multiplResult;
+		}
+		return result;
+	}
+
 }
