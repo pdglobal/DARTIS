@@ -9,6 +9,7 @@ public class time {
 		counter += 1;
 		BigDecimal estimatedTime = new BigDecimal(System.nanoTime()).add(new BigDecimal(counter));
 		if (counter > 1000) { counter = 0; }
-		return strings.stringequalsplit(String.valueOf(estimatedTime).replace(".", ""), String.valueOf(length).length() - 1);
+		if (estimatedTime.toString().substring(0, 1).equals("-")) { estimatedTime = new BigDecimal(new StringBuilder(estimatedTime.abs().toPlainString()).reverse().toString()); }
+		return strings.stringequalsplit((estimatedTime).toPlainString().replace(".", ""), String.valueOf(length).length() - 1);
 	}
 }
