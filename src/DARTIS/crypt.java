@@ -69,8 +69,7 @@ public class crypt {
 		Matrix film = construct.hologram(properties[0].replace("E+", "E"));
 		String[] indexList = properties[1].replace(" ", "").replace("[", "").replace("]", "").split(";");
 		for (int i = 0; i <= indexList.length - 1; i++) {
-			film = film
-					.times(construct.hologram(key[Integer.parseInt(indexList[(indexList.length - 1 - i)])]).inverse());
+			film = film.times(construct.hologram(key[Integer.parseInt(indexList[(indexList.length - 1 - i)])]).inverse());
 		}
 		double[][] original = film.getArray();
 		String flat = strings.array2str(original);
