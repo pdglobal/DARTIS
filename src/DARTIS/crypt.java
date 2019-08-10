@@ -10,7 +10,7 @@ public class crypt {
 		Random rand = new Random();
 		String[] temp = strings.stringequalsplit(data, 1);
 		int array_size = (int) Math.ceil(temp.length / 9);
-		double insert[][] = new double[array_size][10];
+		double insert[][] = new double[array_size+1][10];
 		int n = 0;
 		int l = 0;
 		for (int i = 1; i <= temp.length - 1; i++) {
