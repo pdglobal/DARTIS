@@ -21,7 +21,7 @@ public class runnable {
         mainGUI.debugDecode().setText(originalString);
         mainGUI.getDatasize().setText(String.valueOf(originalString.length())+" Bytes");
         while(true) {
-        	String encodedText = crypt.inject(originalString.toString().getBytes(), key);
+        	String encodedText = crypt.inject(originalString.getBytes(), key);
         	mainGUI.encodedData().setText(encodedText);
         	operations += 1;
         	byte[] returnData = crypt.extract(encodedText, key);
