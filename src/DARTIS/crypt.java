@@ -40,8 +40,7 @@ public class crypt {
 		Matrix nextLayer = construct.hologram(key[Integer.parseInt(timestamp[1])]);
 		matrix = matrix.times(nextLayer);
 		String id = timestamp[1] + ";";
-		int layers = Integer.parseInt(timestamp[0]);
-		for (int i = 1; i <= layers; i++) {
+		for (int i = 2; i <= Integer.parseInt(timestamp[0]); i++) {
 			if (Integer.parseInt(timestamp[i]) < 1) {
 				timestamp[i] = "1";
 			}
