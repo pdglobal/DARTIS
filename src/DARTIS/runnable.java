@@ -2,6 +2,7 @@ package DARTIS;
 
 import java.net.UnknownHostException;
 import java.util.Arrays;
+import DARTIS.mainGUI;
 
 public class runnable {
 	
@@ -12,7 +13,8 @@ public class runnable {
     public static String originalString = "Initializing startup data";
 	
     public static void main(String[] args) throws UnknownHostException {
-        mainGUI.main(args);
+		mainGUI window = new mainGUI();
+		window.frame.setVisible(true);
 			originalString = "Executing DARTIS operations test on: "+java.net.InetAddress.getLocalHost()+" running on JRE "+System.getProperty("java.version");
 			long startTimekey = System.currentTimeMillis();
 			String[] key = construct.load(keys.generate());

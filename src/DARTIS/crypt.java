@@ -3,16 +3,12 @@ package DARTIS;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
-import java.util.stream.Stream;
 
 import Jama.Matrix;
 
 public class crypt {
 
 	public static String inject(byte[] data, String[] key) {
-		Random rand = new Random();
-		// String[] temp = strings.stringequalsplit(data, 1);
 		int array_size = (int) Math.ceil(data.length / 9);
 		double insert[][] = new double[array_size + 1][10];
 		int n = 0;
@@ -82,20 +78,19 @@ public class crypt {
 					.times(construct.hologram(key[Integer.parseInt(indexList[(indexList.length - 1 - i)])]).inverse());
 		}
 
-		return mode(film.getArray());
+		return processMatrixToByte(film.getArray());
 	}
 
-	public static byte[] mode(double[][] arr) {
+	public static byte[] processMatrixToByte(double[][] arr) {
 		List<Integer> list = new ArrayList<Integer>();
 		for (int i = 0; i < arr.length; i++) {
-			// tiny change 1: proper dimensions
+			//turn 2D array into 1D list
 			for (int j = 0; j < arr[i].length; j++) {
-				// tiny change 2: actually store the values
 				list.add(internalMath.safeLongToInt(Math.round(arr[i][j])));
 			}
 		}
 
-		// now you need to find a mode in the list.
+		//find and remove any empty values
 		int indexof = list.indexOf(0);
 
 		while (indexof != -1) {
@@ -103,6 +98,7 @@ public class crypt {
 			indexof = list.indexOf(0);
 		}
 
+		//find padding bytes and convert them to zeros
 		indexof = list.indexOf((byte) 1337997331);
 
 		while (indexof != -1) {
@@ -110,14 +106,14 @@ public class crypt {
 			indexof = list.indexOf((byte) 1337997331);
 		}
 		
-		// tiny change 3, if you definitely need an array
+		// create 1D byte array
 		byte[] vector = new byte[list.size()];
-		// vector[0] = 69;
+		//copy list to byte array
 		for (int i = 0; i < vector.length; i++) {
 
 			vector[i] = (byte) (list.get(i).intValue());
 		}
-		return vector;// return output;
+		return vector;// return 1D byte array;
 	}
 
 }

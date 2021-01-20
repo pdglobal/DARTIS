@@ -13,7 +13,7 @@ import java.awt.Color;
 
 public class mainGUI {
 
-	private JFrame frame;
+	public JFrame frame;
 	private static JTextArea textArea_1;
 	private static JTextArea textArea;
 	private static JLabel label;
@@ -24,16 +24,7 @@ public class mainGUI {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainGUI window = new mainGUI();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+
 	}
 
 	/**
